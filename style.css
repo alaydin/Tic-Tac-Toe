@@ -1,0 +1,97 @@
+/* Add styles for the Tic-Tac-Toe grid and markers */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Optional background color for the page */
+}
+
+/* Style the container */
+.container {
+    text-align: center;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    justify-content: center;
+    margin-top: 20px;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    background-color: #fff;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px solid #000;
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+.cell[data-row="1"], .cell[data-row="2"] {
+    border-top: none;
+}
+
+.cell[data-column="1"], .cell[data-column="2"] {
+    border-left: none;
+}
+
+.cell::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.cell[data-marker="X"]::after {
+    content: "";
+    background: linear-gradient(45deg, #f00, #f00);
+}
+
+.cell[data-marker="O"]::after {
+    content: "";
+    background: linear-gradient(45deg, #00f, #00f);
+}
+
+/* Style the player's turn and winner display */
+#player-turn {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#winner {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: green;
+}
+
+/* Style the reset button */
+#reset {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#reset:hover {
+    background-color: #0056b3;
+}
